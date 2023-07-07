@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:health_and_doctor_appointment/screens/register.dart';
-import 'package:health_and_doctor_appointment/screens/signIn.dart';
+import 'package:smarthealth/screens/register.dart';
+import 'package:smarthealth/screens/signIn.dart';
 
 class FireBaseAuth extends StatefulWidget {
   @override
@@ -93,7 +93,6 @@ class _FireBaseAuthState extends State<FireBaseAuth> {
                                 primary: Colors.indigo[800],
                                 onPrimary: Colors.indigo[800],
                                 shape: RoundedRectangleBorder(
-                                  
                                   borderRadius: BorderRadius.circular(32.0),
                                 ),
                               ),
@@ -122,7 +121,6 @@ class _FireBaseAuthState extends State<FireBaseAuth> {
                                 primary: Colors.white,
                                 onPrimary: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  
                                   borderRadius: BorderRadius.circular(32.0),
                                 ),
                               ),

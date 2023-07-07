@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:health_and_doctor_appointment/firestore-data/myAppointmentList.dart';
+import 'package:smarthealth/firestore-data/myAppointmentList.dart';
 
 class MyAppointments extends StatefulWidget {
   @override

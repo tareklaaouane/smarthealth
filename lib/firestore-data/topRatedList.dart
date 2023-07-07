@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:health_and_doctor_appointment/screens/doctorProfile.dart';
+import 'package:smarthealth/screens/doctorProfile.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
 class TopRatedList extends StatefulWidget {
@@ -10,7 +10,6 @@ class TopRatedList extends StatefulWidget {
 }
 
 class _TopRatedListState extends State<TopRatedList> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -100,7 +99,9 @@ class _TopRatedListState extends State<TopRatedList> {
                                     size: 20,
                                     color: Colors.indigo[400],
                                   ),
-                                  SizedBox(width: 3,),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
                                   Text(
                                     doctor['rating'].toString(),
                                     style: GoogleFonts.lato(

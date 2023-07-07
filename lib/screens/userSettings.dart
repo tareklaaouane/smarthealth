@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:health_and_doctor_appointment/firestore-data/userDetails.dart';
+import 'package:smarthealth/firestore-data/userDetails.dart';
 
 class UserSettings extends StatefulWidget {
   @override
