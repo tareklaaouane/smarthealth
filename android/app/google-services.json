@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "2862981366",
+    "project_id": "smarthealth-e8b39",
+    "storage_bucket": "smarthealth-e8b39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2862981366:android:eb5bf1310aecf86603ccd7",
+        "android_client_info": {
+          "package_name": "com.example.smarthealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2862981366-kv9uh47io6a7ff5e603rlgi54ceseefl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKQDH89yze0zMJSjJME6S5j73oxTp7hGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2862981366-kv9uh47io6a7ff5e603rlgi54ceseefl.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "2862981366-6ast8qrlnoku765erbnp6il15vns86el.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.smarthealth"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
