@@ -20,49 +20,32 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  User user;
+
+  Future<void> _getUser() async {
+    user = _auth.currentUser;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _auth.currentUser,
-      builder: (BuildContext context, AsyncSnapshot<User> snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          // Firebase initialization in progress, return a loading screen
-          return CircularProgressIndicator();
-        } else if (snapshot.hasData) {
-          // User is logged in, return MainPage
-          return MaterialApp(
-            initialRoute: '/',
-            routes: {
-              '/': (context) => MainPage(),
-              '/login': (context) => FireBaseAuth(),
-              '/home': (context) => MainPage(),
-              '/profile': (context) => UserProfile(),
-              '/MyAppointments': (context) => MyAppointments(),
-              '/DoctorProfile': (context) => DoctorProfile(),
-            },
-            theme: ThemeData(brightness: Brightness.light),
-            debugShowCheckedModeBanner: false,
-          );
-        } else {
-          // User is not logged in, return Skip
-          return MaterialApp(
-            initialRoute: '/',
-            routes: {
-              '/': (context) => Skip(),
-              '/login': (context) => FireBaseAuth(),
-              '/home': (context) => MainPage(),
-              '/profile': (context) => UserProfile(),
-              '/MyAppointments': (context) => MyAppointments(),
-              '/DoctorProfile': (context) => DoctorProfile(),
-            },
-            theme: ThemeData(brightness: Brightness.light),
-            debugShowCheckedModeBanner: false,
-          );
-        }
+    _getUser();
+    return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => user == null ? Skip() : MainPage(),
+        '/login': (context) => FireBaseAuth(),
+        '/home': (context) => MainPage(),
+        '/profile': (context) => UserProfile(),
+        '/MyAppointments': (context) => MyAppointments(),
+        '/DoctorProfile': (context) => DoctorProfile(),
       },
+      theme: ThemeData(brightness: Brightness.light),
+      debugShowCheckedModeBanner: false,
+      //home: FirebaseAuthDemo(),
     );
   }
 }

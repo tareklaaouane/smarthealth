@@ -24,6 +24,7 @@ class _MainPageState extends State<MainPage> {
   List<Widget> _pages = [
     HomePage(),
     DoctorsList(),
+    //Center(child: Text('New Appointment')),
     MyAppointments(),
     UserProfile(),
   ];

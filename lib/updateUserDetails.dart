@@ -17,11 +17,11 @@ class _UpdateUserDetailsState extends State<UpdateUserDetails> {
   FocusNode f1;
   FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
-  String userID;
+  String UserID;
 
   Future<void> _getUser() async {
     user = _auth.currentUser;
-    userID = user.uid;
+    UserID = user.uid;
   }
 
   @override
@@ -64,14 +64,10 @@ class _UpdateUserDetailsState extends State<UpdateUserDetails> {
             StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('users')
-                  .doc(userID)
+                  .doc(UserID)
                   .snapshots(),
               builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return CircularProgressIndicator();
-                }
                 var userData = snapshot.data;
-                _textcontroller.text = userData[widget.field] ?? '';
                 return Container(
                   margin: EdgeInsets.symmetric(horizontal: 15),
                   child: TextFormField(
@@ -129,14 +125,13 @@ class _UpdateUserDetailsState extends State<UpdateUserDetails> {
   }
 
   Future<void> updateData() async {
-    FirebaseFirestore.instance.collection('users').doc(userID).set({
+    FirebaseFirestore.instance.collection('users').doc(UserID).set({
       widget.field: _textcontroller.text,
     }, SetOptions(merge: true));
     if (widget.field.compareTo('name') == 0) {
-      await user.updateDisplayName(_textcontroller.text);
+      await user.updateProfile(displayName: _textcontroller.text);
     }
     if (widget.field.compareTo('phone') == 0) {
-      // Add your phone update logic here
     }
   }
 }

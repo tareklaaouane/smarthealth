@@ -15,6 +15,8 @@ class Carouselslider extends StatelessWidget {
         itemCount: bannerCards.length,
         itemBuilder: (context, index, realIndex) {
           return Container(
+            //alignment:  Alignment.centerLeft,
+            //width: MediaQuery.of(context).size.width,
             height: 140,
             margin: EdgeInsets.only(left: 0, right: 0, bottom: 20),
             padding: EdgeInsets.only(left: 0),
@@ -30,36 +32,32 @@ class Carouselslider extends StatelessWidget {
             child: GestureDetector(
               onTap: () {
                 index == 0
-                    ? Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => Disease(),
-                        ),
-                      )
-                    : Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => DiseaseDetail(
-                            disease: 'Covid-19',
-                          ),
-                        ),
-                      );
+                    ? Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                        return Disease();
+                      }))
+                    : Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                        return DiseaseDetail(disease: 'Covid-19');
+                      }));
               },
               child: Stack(
                 children: [
                   Image.asset(
                     bannerCards[index].image,
+                    //'assets/414.jpg',
                     fit: BoxFit.fitHeight,
                   ),
-                  Positioned(
-                    top: 7,
-                    right: 5,
+                  Container(
+                    padding: EdgeInsets.only(top: 7, right: 5),
+                    alignment: Alignment.topRight,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           bannerCards[index].text,
+                          //'Check Disease',
                           style: GoogleFonts.lato(
                             color: Colors.lightBlue[900],
                             fontWeight: FontWeight.bold,
@@ -70,7 +68,7 @@ class Carouselslider extends StatelessWidget {
                           Icons.chevron_right_rounded,
                           color: Colors.lightBlue[900],
                           size: 20,
-                        ),
+                        )
                       ],
                     ),
                   ),
